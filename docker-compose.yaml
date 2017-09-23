@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  postfix:
+    build: .
+    ports:
+      - "2525:25"
