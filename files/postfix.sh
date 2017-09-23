@@ -8,8 +8,9 @@ postconf -e smtputf8_enable=no
 # Update aliases database. It's not used, but postfix complains if the .db file is missing
 postalias /etc/postfix/aliases
 
-echo "Deleting old pid files."
-rm -rf /var/spool/postfix/pid/*
+# Prevent odd locking issues on mounts in kubernetes.
+echo "Creating tmp directory for pid files."
+mount -t tmpfs -o size=100M,mode=0755 tmpfs /var/spool/postfix/pid/
 
 echo "Using the following configurations:"
 echo "Configurations start."
