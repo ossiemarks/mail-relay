@@ -16,5 +16,8 @@ echo "Configurations start."
 postconf -n
 echo "Configurations end."
 
-echo "Starting postfix, which will fork into the background."
-/usr/sbin/postfix -c /etc/postfix start
+echo "Updating permissions."
+/usr/sbin/postfix -c /etc/postfix set-permissions
+
+echo "Starting Postfix."
+/usr/sbin/postfix -c /etc/postfix start-fg
