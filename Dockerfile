@@ -1,10 +1,10 @@
-FROM alpine:edge
-MAINTAINER Mark Lopez
+FROM alpine:3.8
+LABEL maintainer "Mark Lopez <m@silvenga.com>"
 
 # Based on https://github.com/bokysan/docker-postfix
 
 RUN	true && \
-	apk add --no-cache --update postfix=3.3.0-r2 ca-certificates supervisor rsyslog bash openssl && \
+	apk add --no-cache --update postfix=3.3.0-r3 ca-certificates supervisor rsyslog bash openssl && \
     apk add --no-cache --upgrade musl musl-utils && \
 	(rm "/tmp/"* 2>/dev/null || true) && (rm -rf /var/cache/apk/* 2>/dev/null || true)
 
