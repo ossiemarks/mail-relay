@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:edge
 LABEL maintainer "Mark Lopez <m@silvenga.com>"
 
 # Based on https://github.com/bokysan/docker-postfix
